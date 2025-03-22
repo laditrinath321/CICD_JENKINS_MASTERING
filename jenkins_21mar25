@@ -1,0 +1,582 @@
+git bash 
+git hub account creation 
+===============================
+BASIC LINUX COMMANDS: 
+
+pwd
+touch filename
+mkdir dir
+rm -rf 
+cd <dirname>
+cd ..
+ls 
+ll
+ls -lrth
+cd /  ( root dirctory) 
+cd ..
+cd /opt 
+pwd 
+history
+cat fname 
+
+
+  73966 27149
+
+========================
+aws free tier account creation
+
+Server creation 
+Connecting to server
+===============================
+JENKINS SETUP :
+
+
+sudo su - 
+hostnamectl set-hostname jenkinsserver
+
+
+
+vim  jenkins_setup.sh
+
+#!/bin/bash
+sudo yum update –y
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+sudo yum upgrade
+sudo dnf install java-17-amazon-corretto -y
+sudo yum install jenkins -y
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+sudo mount -o remount,size=4G /tmp/
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+========
+
+chmod 700 jenkins_setup.sh
+./jenkins_setup.sh
+=======
+
+
+
+=========================
+vim chmod tomcat_setup.sh
+
+cd /opt
+sudo wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.102/bin/apache-tomcat-9.0.102.tar.gz
+sudo tar -xvf /opt/apache-tomcat-9.0.102.tar.gz
+cd /opt/apache-tomcat-9.0.102/webapps/manager/META-INF
+sudo sed -i 's/"127\\.\\d+\\.\\d+\\.\\d+|::1|0:0:0:0:0:0:0:1"/".*"/g' context.xml
+cd /opt/apache-tomcat-9.0.102/conf
+sudo mv tomcat-users.xml tomcat-users_bkup_18mar2025.xml
+sudo echo '<?xml version="1.0" encoding="utf-8"?>
+        <tomcat-users>
+        <role rolename="manager-gui"/>
+        <user username="tomcat" password="tomcat" roles="manager-gui, manager-script, manager-status"/>
+        </tomcat-users>' > tomcat-users.xml
+cd /opt/apache-tomcat-9.0.102/conf/
+sudo sed -i 's/Connector port="8080"/Connector port="8090"/g' server.xml
+sudo /opt/apache-tomcat-9.0.102/bin/startup.sh
+
+===
+
+chmod 700 tomcat_setup.sh
+./tomcat_setup.sh
+==================
+
+===============
+Jenkins restart -- cli 
+from UI -- 
+
+=============
+JENKINS PRODUCTION CICD PIPELINES 
+JENKINS DISTRIBUTED BUILDS 
+JENKINS BACKUP 
+Jenkins version upgrade 
+
+
+
+==========TOMCAT :
+
+<?xml version="1.0" encoding="utf-8"?>
+<tomcat-users>
+<role rolename="manager-gui"/>
+<user username="tomcat" password="tomcat" roles="manager-gui, manager-script, manager-status"/>
+</tomcat-users>
+
+
+============  DATE : 10 MAR 2025
+
+download 
+
+
+* * * * * 
+
+JAN 26 , 8:10 pm 
+
+
+10 20 26 1 0
+========
+
+oct 2 , 1 :10 pm 
+
+* * * * * 
+
+===================
+
+mvn clean install 
+
+======================================
+wget <LINK> 
+
+   .zip 
+   
+unzip    
+
+tar -xvf folder.tar.gz
+
+VI / VIM EDITOR :
+
+
+vim server.xml
+
+esc -- i 
+---------
+editing 
+---
+
+
+esc -- wq!
+
+
+=========================================
+11 MARCH 25 : 
+
+tail -n fname 
+
+
+
+jenkins upgrade : 
+
+
+
+git fork
+
+
+cp -rp fname/dir newfname 
+
+mv 
+ps -ef | grep tomcat 
+ps -ef | grep jenkins 
+kill -9 PID 
+
+==================
+jenkins credentials 
+jenkins upgrade 
+
+
+================== 12 MARCH 25 =======
+
+1. jenkins restart 
+
+mv 
+ps -ef | grep tomcat 
+ps -ef | grep jenkins 
+kill -9 PID 
+
+
+============= 13 march 2025 =========================================================
+
+echo 
+pipeline 
+stages 
+
+==========
+plugins : 
+
+PIPELINE STAGE VIEW
+BLUE OCEAN 
+DEPLOY 
+============
+
+PIPELINE BENEFITS : 
+
+
+DECLARATIVE VS SCRIPTED PIPELINES
+
+===========  19 MAR 2025
+
+wincp
+ 
+scp srcpath destpath 
+
+
+JAVA_HOME : /opt/jdk1.8.0_441
+
+PATH : /opt/jdk1.8.0_441/bin
+
+
+
+
+
+
+
+git clone <repo> 
+
+
+JAVA_HOME ----> C:\Program Files\Java\jdk-1.8
+
+PATH --->  C:\Program Files\Java\jdk-1.8\bin
+
+-------
+
+M2_HOME   -->   C:\Users\Dell\Desktop\BATCH15\apache-maven-3.9.9-bin\apache-maven-3.9.9
+
+PATH --->      C:\Users\Dell\Desktop\BATCH15\apache-maven-3.9.9-bin\apache-maven-3.9.9\bin
+
+
+===========
+
+DATE : 19 MAR 2025
+
+Classic problem in SDLC 
+Custom java & maven installation on linux 
+maven repositories 
+maven java dependencies 
+maven life cycle 
+
+
+winscp /scp 
+
+/opt/jdk1.8.0_441
+
+JAVA_HOME --- /opt/jdk1.8.0_411
+PATH --- /opt/jdk1.8.0_411/bin
+
+
+
+vim /etc/profile.d/java.sh 
+
+export JAVA_HOME=/opt/jdk1.8.0_441/
+export PATH=${JAVA_HOME}/bin:${PATH}
+
+
+source /etc/profile.d/java.sh 
+
+===========================
+20 MAR 2025:
+
+MVN LIFE CYCLE / PHASES / GOALS 
+POM.XML --> PLUGINS & DEPENDENCIES 
+PM TOOL -- GENRERATING PROJECT STRUCTURE 
+
+ANT / GRADLE --> build tools 
+mvn --- build + PM 
+
+mvn archetype:generate 
+
+======
+
+
+MVN LIFE CYCLE -- PHASES -- PLUGINS -- GOAL
+(go through this linked in post) 
+
+https://www.linkedin.com/posts/madhukiran-gorekar_maven-buildlifecycle-devops-activity-7247579291457093633-GBIP?utm_source=share&utm_medium=member_desktop
+
+=======================================
+
+Diffrent stages should be built on diffrent slaves Nodes : 
+
+pipeline {
+    agent none
+    
+    
+    stages {
+    
+    
+        stage('Clone Repository') {
+            agent { label 'slave-1' } // Agent for Git operations
+            steps {
+               
+                git branch: 'main', url: 'https://github.com/devopstraininghub/mindcircuit15d.git'
+                
+                
+                stash includes: '', name: 'batch15mcCode'
+            }
+        }
+        
+        stage('Build with Maven') {
+            agent { label 'slave-2' } // Agent for Maven build
+            steps {
+                script {
+                    
+                    unstash 'batch15mcCode'
+                    
+                   
+                    sh 'mvn clean package'
+                }
+            }
+        }
+        
+        
+        
+    }
+
+
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed. Please check the logs.'
+        }
+    }
+}
+
+
+
+===============================================
+21 MAR 25 :
+
+=========================
+GIT FORK -- WHY  
+
+==================
+
+ADDING ENVIRONEMNT VARIABLES :
+Added an environment block to define reusable environment variables:
+         GIT_URL – Git repository URL
+         BRANCH – Git branch to clone
+         TOMCAT_URL – Tomcat server URL
+         TOMCAT_CREDENTIALS_ID – Credentials ID for Tomcat deployment
+         CONTEXT_PATH – Context path for the app deployment
+		 
+This makes the pipeline cleaner, more flexible, and easier to maintain!
+------------------------------
+
+pipeline {
+    agent any
+	
+    environment {
+        GIT_URL = 'https://github.com/devopstraininghub/mindcircuit15d.git'
+        BRANCH = 'main'
+        TOMCAT_URL = 'http://54.91.227.106:8081/'
+        TOMCAT_CREDENTIALS_ID = 'tomcat'
+        CONTEXT_PATH = 'devops-app'
+    }
+
+    stages {
+
+        stage('CLONE GITHUB CODE') {
+            steps {
+                echo 'In this stage, code will be cloned'
+                git branch: "${BRANCH}", url: "${GIT_URL}"
+            }
+        }
+
+        stage('BUILDING THE CODE') {
+            steps {
+                echo 'In this stage, code will be built and an mvn artifact will be generated'
+                sh 'mvn clean install'
+            }
+        }
+
+        stage('DEPLOY') {
+            steps {
+                echo 'In this stage, .war artifact will be deployed onto Tomcat'
+                deploy adapters: [
+                    tomcat9(
+                        credentialsId: "${TOMCAT_CREDENTIALS_ID}", 
+                        path: '', 
+                        url: "${TOMCAT_URL}"
+                    )
+                ], 
+                contextPath: "${CONTEXT_PATH}", 
+                war: '**/*.war'
+            }
+        }
+    }
+}
+
+
+
+
+========================================================================
+
+
+JENKINS GIT WEBHOOK INTEGRATION  : 
+
+
+WEBHOOKS :
+
+http://54.159.26.167:8080/github-webhook/
+================================================
+pipeline {
+    agent any
+	
+	triggers {
+        githubPush() 
+    }
+
+    stages {
+        stage('CLONE SCM') {
+            steps {
+                git branch: 'main', url: 'https://github.com/devopstraininghub/mindcircuit15d.git'
+            }
+        }
+		
+		
+		    stage('MVN BUILD') {
+            steps {
+                
+				sh 'mvn clean install'
+            }
+        }
+		
+		
+		    stage('DEPLOY TO TOMCAT') {
+            steps {
+                deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://54.159.26.167:8090/')], contextPath: 'mcapp', war: '**/*.war'
+            }
+        }
+    }
+}
+
+
+========================================================================
+
+
+BUILD SHOUD CONTINUE EVEN IF A STAGE FAILS IN PIPELINE : (USING try & catch blocks) : 
+
+pipeline {
+    agent any
+
+    stages {
+	
+	    stage('Clean Workspace') {
+            steps {
+                cleanWs() 
+                 }
+			
+                }
+	
+        stage('CLONE GITHUB CODE') {
+            steps {
+			
+			 script{ 
+			
+			    try {
+                   echo 'In this stage code will be clone'
+			     	git branch: 'main', url: 'https://github.com/devopstraininghub/mindcircuit15d.git'
+				}
+		
+              catch (Exception e) {                        
+                        echo "Stage 1 failed: ${e.message}" 
+
+                  } 			
+				
+				}
+        }
+		}
+		
+        stage('BUILDING THE CODE') {
+            steps {
+			
+			script { 
+			try { 
+                echo 'In this stage code will be build and mvn artifact will be generated'
+				sh 'mvn clean install '
+				} 
+		  catch (Exception e) {                        
+                        echo "Stage 2 failed: ${e.message}" 
+
+                  } 					
+            }
+        }	
+        } 		
+		
+        stage('DEPLOY') {
+            steps {
+                echo 'In this stage .war artiface will be deployed on to tomcat '
+				deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://54.91.227.106:8081/')], contextPath: 'devops-app', war: '**/*.war'
+				
+            }
+        }		
+		
+		
+    }
+}
+
+
+
+================================================================================
+
+PARALLEL stages execution: 
+
+pipeline {
+    agent any
+
+    stages {
+	
+	    stage('Clean Workspace') {
+             steps {
+                cleanWs() 
+                   } 
+				   }
+				   
+		
+        stage('CLONE GITHUB CODE') {
+            steps {
+			
+			 script{ 
+			
+			    try {
+                   echo 'In this stage code will be clone'
+			     	git branch: 'main', url: 'https://github.com/devopstraininghub/mindcircuit15d.git'
+				}
+		
+              catch (Exception e) {                        
+                        echo "Stage 1 failed: ${e.message}" 
+
+                  } 			
+				
+				}
+        }
+		}
+
+        stage('deploy to multiple environments ') {
+            parallel {			
+			  stage('Lab') {
+                    steps {
+                        echo 'DEPLOYING ON lAB...'                        
+                    }
+					}
+              stage('sbox') {
+                    steps {
+                        echo 'DEPLOYING ON sbox...'                        
+                    }
+                }
+             stage('UAT') {
+                    steps {
+                        echo 'DEPLOYING ON uat...'                       
+                    }
+                }    
+
+           stage('staging') {
+                    steps {
+                        echo 'Running Maven Install...'                       
+                    }
+                }   
+
+
+            stage('PROD') {
+                    steps {
+                        echo 'Running Maven Install...'                       
+                    }
+                }   
+
+				
+                }
+				}
+        }
+    }
+  
