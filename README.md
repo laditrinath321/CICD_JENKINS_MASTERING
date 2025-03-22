@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# CICD_JENKINS_MASTERING
-CICD_JENKINS_MASTERING
-=======
 # CI/CD Pipeline with Jenkins and Tomcat
 
 This repository contains Jenkins pipelines for building, testing, and deploying a Java application using Maven and Tomcat. The pipelines demonstrate various Jenkins features such as environment variables, parallel stages, and error handling.
